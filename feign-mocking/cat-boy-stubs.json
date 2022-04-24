@@ -1,0 +1,38 @@
+{
+  "mappings" : [ {
+    "id" : "f35d9d2f-28c6-47fd-a331-fbc2d64fa8e4",
+    "name" : "image",
+    "request" : {
+      "urlPath" : "/img",
+      "method" : "GET"
+    },
+    "response" : {
+      "status" : 200,
+      "additionalProxyRequestHeaders" : { },
+      "proxyBaseUrl" : "https://api.catboys.com"
+    },
+    "uuid" : "f35d9d2f-28c6-47fd-a331-fbc2d64fa8e4",
+    "persistent" : true,
+    "priority" : 5
+  }, {
+    "id" : "481a8425-c14b-4f6a-9c6a-073856f2be7e",
+    "name" : "ping",
+    "request" : {
+      "url" : "/ping",
+      "method" : "GET"
+    },
+    "response" : {
+      "status" : 200,
+      "body" : "{\n\t\"catboy_says\": \"this is mocked!\",\n\t\"error\": \"none\",\n\t\"code\": 200\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "481a8425-c14b-4f6a-9c6a-073856f2be7e",
+    "persistent" : true,
+    "priority" : 5
+  } ],
+  "meta" : {
+    "total" : 2
+  }
+}
