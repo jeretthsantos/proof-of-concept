@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: spring-streaming-large-files
+
+server:
+  port: 9000
