@@ -1,0 +1,32 @@
+spring:
+  # Application Configuration
+  application:
+    name: spring-streaming-large-report
+
+  # Datasource Configuration
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/postgres
+
+  # JPA Configuration
+  jpa:
+    database:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  # MVC Configuration
+  mvc:
+    async:
+      request-timeout: 30000000
+
+# Server Configuration
+server:
+  port: 9000
+
+# Report
+report:
+  invoice: classpath:report/Invoice.jrxml
