@@ -58,16 +58,18 @@ internal class DefaultV1ReportController(
                 val oos = ObjectOutputStream(it)
                 LongStream.rangeClosed(0, counter).forEach { counter ->
                     log.info("Creating report value #$counter")
-                    oos.write(
-                        om.writeValueAsBytes(
-                            repository.save(
-                                Report(
-                                    description = lorem.getWords(10, 15),
-                                    amount = BigDecimal.TEN.multiply(BigDecimal.valueOf(Random.nextLong(1, 1000)))
+                    oos.use {
+                        oos.write(
+                            om.writeValueAsBytes(
+                                repository.save(
+                                    Report(
+                                        description = lorem.getWords(10, 15),
+                                        amount = BigDecimal.TEN.multiply(BigDecimal.valueOf(Random.nextLong(1, 1000)))
+                                    )
                                 )
                             )
                         )
-                    )
+                    }
                 }
             })
     }
