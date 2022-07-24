@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: spring-soap
+
+server:
+  port: 9000
