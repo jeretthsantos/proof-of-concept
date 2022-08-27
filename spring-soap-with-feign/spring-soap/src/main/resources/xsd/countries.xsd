@@ -5,6 +5,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="name" type="xs:string"/>
+                <xs:element name="delay" type="xs:long"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -13,6 +14,15 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="country" type="tns:country"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetCountryFault">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="statusCode" type="xs:string"/>
+                <xs:element name="validationMessage" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

@@ -1,5 +1,5 @@
 package dev.jeretth.santos.poc.exception
 
-class CountryNotFoundException(
+class InternalServerErrorException(
     override val message: String?
-) : Exception(message)
+) : RuntimeException()

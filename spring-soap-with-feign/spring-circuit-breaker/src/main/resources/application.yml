@@ -1,0 +1,53 @@
+feign:
+  circuitbreaker:
+    enabled: true
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  health:
+    circuitbreakers:
+      enabled: true
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        failureRateThreshold: 60
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 10
+        registerHealthIndicator: true
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 10
+        slowCallRateThreshold: 60
+        slowCallDurationThreshold: 5s
+        waitDurationInOpenState: 10s
+    instances:
+      CountryClient_getCountry_GetCountryRequest_:
+        baseConfig: default
+  timelimiter:
+    configs:
+      default:
+        cancelRunningFuture: true
+    instances:
+      CountryClient_getCountry_GetCountryRequest_:
+        baseConfig: default
+        timeoutDuration: 5s
+
+server:
+  port: 9001
+
+services:
+
+  country:
+    name: country
+    url: http://localhost:9000/ws
+
+spring:
+  application:
+    name: spring-circuit-breaker
