@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: spring-weather
+
+server:
+  port: 9002
