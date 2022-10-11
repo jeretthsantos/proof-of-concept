@@ -1,0 +1,24 @@
+hazelcast:
+  map:
+    default:
+      eviction:
+        eviction-policy: LRU
+        max-size-policy: USED_HEAP_SIZE
+        size: 100
+  metrics:
+    management-center:
+      enabled: false
+  network:
+    join:
+      multicast:
+        enabled: true
+    rest-api:
+      enabled: true
+      endpoint-groups:
+        HEALTH_CHECK:
+          enabled: true
+        DATA:
+          enabled: true
+  partition-group:
+    enabled: true
+    group-type: HOST_AWARE
